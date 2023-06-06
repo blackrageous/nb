@@ -1,0 +1,24 @@
+
+use admin
+
+db.createUser(
+  {
+    user: "hpnaro",
+    pwd: "Welcome1",
+    roles: [
+      { role: "read", db: "ngsystem" },
+      { role: "read", db: "flows" }
+    ]
+  }
+)
+
+db.createUser(
+  {
+    user: "netbrain_backup",
+    pwd: "Welcome1",
+    roles: [
+      { role: "readAnyDatabase", db: "admin" }
+    ]
+  }
+)
+
