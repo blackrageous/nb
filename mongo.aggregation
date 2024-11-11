@@ -1,0 +1,15 @@
+db.collection.aggregate([
+    { 
+        $match: { key: "licenseid" }  // Match the document based on key
+    },
+    {
+        $project: {
+            licenseid: { 
+                $arrayElemAt: [
+                    { $split: [ { $substrBytes: [ "$value", 1, -1 ] }, "\"" ] },
+                    0
+                ]
+            }
+        }
+    }
+]);
